@@ -73,7 +73,7 @@ function SignIn() {
         Sign in with Google
       </button>
       <p>
-        Do not violate the community guidelines or you will be banned for life!
+        Welcome to FamConnect !!!!
       </p>
     </>
   );
@@ -92,7 +92,7 @@ function SignOut() {
 function ChatRoom() {
   const dummy = useRef();
   const messagesRef = firestore.collection("messages");
-  const query = messagesRef.orderBy("createdAt").limit(25);
+  const query = messagesRef.orderBy("createdAt");
 
   const [messages] = useCollectionData(query, { idField: "id" });
 
