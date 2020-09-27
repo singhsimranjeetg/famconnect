@@ -1,10 +1,11 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState,  useEffect  } from "react";
 import "./App.css";
 
 import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
 import "firebase/analytics";
+import "firebase/messaging"
 
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useCollectionData } from "react-firebase-hooks/firestore";
@@ -26,8 +27,28 @@ const auth = firebase.auth();
 const firestore = firebase.firestore();
 //const analytics = firebase.analytics();
 
+
+
 function App() {
   const [user] = useAuthState(auth);
+
+ /* useEffect(() => {
+    
+    const msg = firebase.messaging();
+    msg.requestPermission().then(() => {
+      return msg.getToken();
+    }).then(data => {
+      console.log(data)
+    })
+  })
+*/
+   useEffect(() => {
+    
+    const msg = firebase.messaging();
+    msg.getToken().then(data => {
+      console.log("token", data)
+    })
+  })
 
   return (
     <div className="App">
