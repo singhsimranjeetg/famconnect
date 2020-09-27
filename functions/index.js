@@ -16,7 +16,7 @@ exports.detectEvilUsers = functions.firestore
         if (filter.isProfane(text)) {
 
             const cleaned = filter.clean(text);
-            await doc.ref.update({text: `🤐 I got BANNED for life for saying... ${cleaned}`});
+            await doc.ref.update({text: `Your services has been cancelled for violating our terms and conditions. Please contact admin to restart using app. ${cleaned}`});
 
             await db.collection('banned').doc(uid).set({});
         } 
