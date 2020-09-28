@@ -4,6 +4,8 @@ import "firebase/auth";
 import "firebase/analytics";
 import "firebase/messaging"
 
+//import { useCollectionData } from "react-firebase-hooks/firestore";
+
 
 
 if (!firebase.apps.length) {
@@ -26,15 +28,35 @@ export const firestore = firebase.firestore();
 export const msg = firebase.messaging();
 
 
+export const createNewMessageDoc = async (formValue) => {
+  const messagesRef = firestore.collection("messages");
+
+
+  const { uid, photoURL } = auth.currentUser;
+
+  await messagesRef.add({
+    text: formValue,
+    createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+    uid,
+    photoURL,
+    notiTokens: []
+  });
+
+  
+}
+
+
 export const fcmNoti = () => {
   msg.getToken().then(data => {
   console.log("token", data)
 })
-  msg.onMessage((payload) => {
-  console.log('onMessage', payload)
-
-})
+ 
  };
+
+ /* msg.onMessage((payload) => {
+  console.log('onMessage', payload);
+
+}) */
 
 
 

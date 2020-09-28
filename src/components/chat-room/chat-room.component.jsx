@@ -1,11 +1,11 @@
-import React, {useRef, useState} from "react";
+import React, {useRef, useState, useEffect} from "react";
 import "../../App.css";
 
 import ChatMessage from "../chat-message/chat-message.component"
 
 import { useCollectionData } from "react-firebase-hooks/firestore";
 
-import firebase, {auth, firestore} from "../../firebase/firebase.utils";
+import  { createNewMessageDoc, firestore } from "../../firebase/firebase.utils";
 
 
 
@@ -13,33 +13,37 @@ import firebase, {auth, firestore} from "../../firebase/firebase.utils";
 
 
 function ChatRoom() {
+
+  useEffect( () => {
+    let messageBody = document.querySelector('#messageBody');
+    messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
+  })
+
+
+
     const dummy = useRef();
     const messagesRef = firestore.collection("messages");
-    const query = messagesRef.orderBy("createdAt");
-  
-    const [messages] = useCollectionData(query, { idField: "id" });
+    const query = messagesRef.orderBy("createdAt");   
+    const [messages] = useCollectionData(query, { idField: "id" });  
   
     const [formValue, setFormValue] = useState("");
   
     const sendMessage = async (e) => {
       e.preventDefault();
-  
-      const { uid, photoURL } = auth.currentUser;
-  
-      await messagesRef.add({
-        text: formValue,
-        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-        uid,
-        photoURL
-      });
+      await createNewMessageDoc(formValue);
   
       setFormValue("");
       dummy.current.scrollIntoView({ behavior: "smooth" });
+      
     };
+
+    
+      
+  
   
     return (
       <>
-        <main>
+        <main id = 'messageBody'>
           {messages &&
             messages.map((msg) => <ChatMessage key={msg.id} message={msg} />)}
   
@@ -54,7 +58,7 @@ function ChatRoom() {
           />
   
           <button type="submit" disabled={!formValue}>
-          <i class="far fa-paper-plane"></i>
+          <i className="far fa-paper-plane"></i>
           </button>
         </form>
       </>
