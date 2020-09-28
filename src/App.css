@@ -67,7 +67,7 @@ form {
 
 form button {
   width: 20%;
-  background-color: rgb(56, 56, 143);
+  background-color: mediumvioletred;
 }
 
 
@@ -83,7 +83,7 @@ input {
 }
 
 button {
-  background-color: #282c34; /* Green */
+  background-color: rgb(56, 56, 143);; /* Green */
   border: none;
   color: white;
   padding: 15px 32px;
@@ -101,11 +101,14 @@ button:disabled {
 
 
 .sign-in {
-  color: #282c34;
-  background: white;
+  color: white;
+  background: #4c8bf5;
   max-width: 400px;
   margin: 0 auto;
+  border-radius: 30px;
 }
+
+
 
 
 
@@ -124,6 +127,7 @@ p {
   position: relative;
   color: white;
   text-align: center;
+ 
 }
 
 .message {
@@ -153,3 +157,7 @@ img {
   margin: 2px 5px;
 }
 
+
+h1 {
+  color: white;
+}

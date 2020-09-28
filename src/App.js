@@ -2,16 +2,19 @@ import React, {  useEffect  } from "react";
 import "./App.css";
 
 
+
+
 import { useAuthState } from "react-firebase-hooks/auth";
 
 
-import {SignIn, SignOut} from "./components/signin-and-signout/sign-in-and-sign-out.component"
+import {SignOut} from "./components/signin-and-signout/sign-in-and-sign-out.component"
 import ChatRoom from "./components/chat-room/chat-room.component";
+import PasswordPage from "./pages/password/password.page"
 
 import {auth, msg} from "./firebase/firebase.utils";
 
 
-
+require('dotenv').config();
 
 
 function App() {
@@ -31,7 +34,7 @@ function App() {
         <SignOut />
       </header>
 
-      <section>{user ? <ChatRoom /> : <SignIn />}</section>
+      <section>{user ? <ChatRoom /> : <PasswordPage />}</section>
     </div>
   );
 }

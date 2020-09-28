@@ -11,12 +11,13 @@ export function SignIn() {
   
     return (
       <>
+        <h1>
+          Welcome to Famconnect !
+        </h1>
         <button className="sign-in" onClick={signInWithGoogle}>
           Sign in with Google
         </button>
-        <p>
-          Welcome to FamConnect !!!!
-        </p>
+        
       </>
     );
   }

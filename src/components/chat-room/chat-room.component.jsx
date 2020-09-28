@@ -54,7 +54,7 @@ function ChatRoom() {
           />
   
           <button type="submit" disabled={!formValue}>
-            send
+          <i class="far fa-paper-plane"></i>
           </button>
         </form>
       </>
