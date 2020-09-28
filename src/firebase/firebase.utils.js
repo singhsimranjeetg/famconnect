@@ -5,6 +5,7 @@ import "firebase/analytics";
 import "firebase/messaging"
 
 
+
 if (!firebase.apps.length) {
   firebase.initializeApp({
     apiKey: "AIzaSyDg0yZZ2DRQbadBXFghqzjbs8jtPTu4sUc",
@@ -18,10 +19,23 @@ if (!firebase.apps.length) {
   });
 }
 
+
+
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 export const msg = firebase.messaging();
-//const analytics = firebase.analytics();
+
+
+export const fcmNoti = () => {
+  msg.getToken().then(data => {
+  console.log("token", data)
+})
+  msg.onMessage((payload) => {
+  console.log('onMessage', payload)
+
+})
+ };
+
 
 
 export default firebase;

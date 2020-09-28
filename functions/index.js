@@ -32,3 +32,11 @@ exports.detectEvilUsers = functions.firestore
         }
 
 });
+
+
+exports.sendPushNotifications = functions.firestore
+.document('messages/{msgId}').onCreate((doc, ctx) => {
+
+    const { text, uid } = doc.data();
+    console.log("fired function on creating new doc" , text)
+})

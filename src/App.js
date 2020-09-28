@@ -11,7 +11,7 @@ import {SignOut} from "./components/signin-and-signout/sign-in-and-sign-out.comp
 import ChatRoom from "./components/chat-room/chat-room.component";
 import PasswordPage from "./pages/password/password.page"
 
-import {auth, msg} from "./firebase/firebase.utils";
+import {auth, fcmNoti} from "./firebase/firebase.utils";
 
 
 require('dotenv').config();
@@ -21,12 +21,10 @@ function App() {
   const [user] = useAuthState(auth);
 
 
-   useEffect(() => {
-    
-    msg.getToken().then(data => {
-      console.log("token", data)
+   useEffect(() => { 
+    fcmNoti();
     })
-  })
+
 
   return (
     <div className="App">

@@ -11,7 +11,7 @@ import {SignIn} from "../../components/signin-and-signout/sign-in-and-sign-out.c
 
 const PasswordPage = () => {
 
-    const key = process.env.REACT_APP_ENTER_KEY;
+   // const key = process.env.REACT_APP_ENTER_KEY;
     
 
     const [formValue, setFormValue] = useState("");
@@ -21,7 +21,7 @@ const PasswordPage = () => {
     const checkPassword = async (e) => {
         e.preventDefault(); 
 
-        if (formValue === key) {  
+        if (formValue === '1010') {  
             console.log("welcome")
             setFormValue('')
             setAuthorized(true)
