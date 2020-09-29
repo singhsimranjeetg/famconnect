@@ -1,12 +1,15 @@
 import React from "react";
 import "../../App.css";
 
-import firebase, {auth} from "../../firebase/firebase.utils";
+import firebase, {auth, writeUserDataInRd} from "../../firebase/firebase.utils";
 
 export function SignIn() {
-    const signInWithGoogle = () => {
+    const signInWithGoogle = async () => {
       const provider = new firebase.auth.GoogleAuthProvider();
-      auth.signInWithPopup(provider);
+      await auth.signInWithPopup(provider);
+      writeUserDataInRd();
+
+
     };
   
     return (

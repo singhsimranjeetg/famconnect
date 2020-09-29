@@ -1,4 +1,4 @@
-import React, {  useEffect  } from "react";
+import React from "react";
 import "./App.css";
 
 
@@ -11,7 +11,8 @@ import {SignOut} from "./components/signin-and-signout/sign-in-and-sign-out.comp
 import ChatRoom from "./components/chat-room/chat-room.component";
 import PasswordPage from "./pages/password/password.page"
 
-import {auth, fcmNoti} from "./firebase/firebase.utils";
+import {auth} from "./firebase/firebase.utils";
+
 
 
 require('dotenv').config();
@@ -21,11 +22,9 @@ function App() {
   const [user] = useAuthState(auth);
 
 
-   useEffect(() => { 
-    fcmNoti();
-    }, [])
+   
 
-
+   // console.log(auth.currentUser)
   return (
     <div className="App">
       <header>
