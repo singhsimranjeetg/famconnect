@@ -28,10 +28,12 @@ export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 export const msg = firebase.messaging();
 
+
 //console.log(auth) auth return an object with currentUser in it, which in turn has all other data like displayName, uid in it
 
 
 
+// Creates new message doc in firestore
 
 export const createNewMessageDoc = async (formValue) => {
   const messagesRef = firestore.collection("messages");
@@ -41,7 +43,7 @@ export const createNewMessageDoc = async (formValue) => {
 
   await messagesRef.add({
     text: formValue,
-    createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+    createdAt: new Date(),
     uid,
     photoURL
   });
@@ -50,6 +52,7 @@ export const createNewMessageDoc = async (formValue) => {
 }
 
 
+//ask for push notifications and updates user and token in firbase db.
 export const fcmNoti = () => {
   msg.getToken().then(async data => {
   console.log("token", data)
@@ -70,6 +73,7 @@ export const fcmNoti = () => {
 
 
   
+// stores user in firebase realtime db after sign in with google
 
   export const writeUserDataInRd = () =>  {
 

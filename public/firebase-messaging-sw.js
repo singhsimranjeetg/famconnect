@@ -15,3 +15,4 @@ if ('serviceWorker' in navigator) {
    })
 
  const initMessaging = firebase.messaging();
+

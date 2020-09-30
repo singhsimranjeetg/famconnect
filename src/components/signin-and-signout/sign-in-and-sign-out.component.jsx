@@ -26,12 +26,17 @@ export function SignIn() {
   }
   
  export function SignOut() {
+
+
+
     return (
-      auth.currentUser && (
+      
+        auth.currentUser && (
         <button className="sign-out" onClick={() => auth.signOut()}>
           Sign Out
         </button>
-      )
-    );
+          
+        )
+    )
   }
 

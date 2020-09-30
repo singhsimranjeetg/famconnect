@@ -19,9 +19,6 @@ function ChatRoom() {
     messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
 
     fcmNoti();
-   // writeUserDataInRd();
-
-
   })
 
 

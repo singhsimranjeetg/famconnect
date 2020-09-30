@@ -135,6 +135,20 @@ p {
   align-items: center;
 }
 
+.message-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.msg-date {
+  
+  font-size: 8px;
+  margin-top: -8px;
+  align-self: flex-start;
+  margin-left: 20px;
+ font-weight: lighter;
+}
+
 
 .sent {
   flex-direction: row-reverse;

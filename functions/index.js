@@ -35,8 +35,24 @@ exports.detectEvilUsers = functions.firestore
 
 
 exports.sendPushNotifications = functions.firestore
-.document('messages/{msgId}').onCreate((doc, ctx) => {
+.document('messages/{msgId}').onCreate(async (doc, ctx) => {
 
-    const { text, uid } = doc.data();
+    const { text, photoURL } = doc.data();
     console.log("fired function on creating new doc" , text)
+
+    const payload = {
+        notification: {
+          title: 'You have a new follower!',
+          body: 'Woww!!!!!!',
+          icon: photoURL
+        }
+      };
+
+      const registrationToken = 'dU0C7rfdMo5TkJrISOXONo:APA91bHHLHfH30prrIr0EBVY90T9rImyUr-LB6zzz2jm0-EugLnhoaBtfZoJup9Y0wij385OJKU3BMxXRz00vscExnCxExV3PTmhA8Xh7pGb_Nz17A5gjS7XeguLO5pQ4qx1G-TRCFEW'
+
+      
+      await admin.messaging().sendToDevice(registrationToken, payload)
+
+      console.log("notification sent")
+
 })
