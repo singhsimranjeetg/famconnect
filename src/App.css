@@ -66,7 +66,7 @@ form {
 }
 
 form button {
-  width: 20%;
+  
   background-color: mediumvioletred;
 }
 
@@ -86,12 +86,13 @@ button {
   background-color: rgb(56, 56, 143);; /* Green */
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 10px 25px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   cursor: pointer;
-  font-size: 1.25rem;
+  font-size: 1rem;
+  border-radius: 10px;
 }
 
 button:disabled {
@@ -135,6 +136,10 @@ p {
   align-items: center;
 }
 
+.message__hide {
+  display: none;
+}
+
 .message-wrapper {
   display: flex;
   flex-direction: column;
@@ -147,6 +152,7 @@ p {
   align-self: flex-start;
   margin-left: 20px;
  font-weight: lighter;
+ color: darkslategrey;
 }
 
 

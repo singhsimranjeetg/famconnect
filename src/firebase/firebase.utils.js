@@ -51,6 +51,19 @@ export const createNewMessageDoc = async (formValue) => {
   
 }
 
+export const deleteMessageDoc = async (id) => {
+  const messagesRef = firestore.collection("messages").doc(id)
+
+
+ // const { uid, photoURL } = auth.currentUser;
+
+  await messagesRef.update({
+    text: ""
+  });
+
+  
+}
+
 
 //ask for push notifications and updates user and token in firbase db.
 export const fcmNoti = () => {

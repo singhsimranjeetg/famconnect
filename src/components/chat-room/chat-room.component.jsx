@@ -5,7 +5,7 @@ import ChatMessage from "../chat-message/chat-message.component"
 
 import { useCollectionData } from "react-firebase-hooks/firestore";
 
-import  { createNewMessageDoc, firestore, fcmNoti } from "../../firebase/firebase.utils";
+import  { createNewMessageDoc, firestore, fcmNoti} from "../../firebase/firebase.utils";
 
 
 
@@ -29,6 +29,8 @@ function ChatRoom() {
     const [messages] = useCollectionData(query, { idField: "id" });  
   
     const [formValue, setFormValue] = useState("");
+
+  
   
     const sendMessage = async (e) => {
       e.preventDefault();
@@ -41,14 +43,18 @@ function ChatRoom() {
     };
 
     
-      
+
+    
+   
   
   
     return (
       <>
         <main id = 'messageBody'>
           {messages &&
-            messages.map((msg) => <ChatMessage key={msg.id} message={msg} />)}
+            messages.map((msg) => (
+               <ChatMessage key={msg.id} message={msg} />)
+             )}
   
           <span ref={dummy}></span>
         </main>

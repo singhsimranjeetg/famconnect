@@ -39,7 +39,7 @@ const PasswordPage = () => {
         <div>
         {authorized ? <SignIn /> : 
         <section>
-          <h1>Please enter access key or contact Simranjeet for more details.</h1>}
+          <h1>Please enter access key or contact Simranjeet for more details.</h1>
         <form onSubmit = {checkPassword}>
           <input
             value={formValue}
