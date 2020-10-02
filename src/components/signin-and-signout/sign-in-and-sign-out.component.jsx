@@ -9,7 +9,6 @@ export function SignIn() {
       await auth.signInWithPopup(provider);
       writeUserDataInRd();
 
-
     };
   
     return (

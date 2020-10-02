@@ -32,7 +32,7 @@ function App() {
       <header>
         <SignOut />
       </header>
-
+    
       <section>{user ? <ChatRoom /> : <PasswordPage />}</section>
     </div>
   );

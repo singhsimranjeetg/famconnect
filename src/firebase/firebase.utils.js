@@ -4,6 +4,7 @@ import "firebase/auth";
 import "firebase/analytics";
 import "firebase/messaging";
 import "firebase/database";
+import "firebase/storage";
 
 //import { useCollectionData } from "react-firebase-hooks/firestore";
 
@@ -27,6 +28,7 @@ if (!firebase.apps.length) {
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 export const msg = firebase.messaging();
+export const storage = firebase.storage();
 
 
 //console.log(auth) auth return an object with currentUser in it, which in turn has all other data like displayName, uid in it
