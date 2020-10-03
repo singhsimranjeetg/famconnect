@@ -1,20 +1,16 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 
-import { storage} from "../../firebase/firebase.utils"
+//import { storage} from "../../firebase/firebase.utils"
 
 const Image = (props) => {
 
 
-    const imgUrl = props.imgUrli
-
-    console.log(props)
-
-
+    const imgsrc = props.imgsrc
 
     return (
         <div>
             <div>Hello</div>
-            <img src= {imgUrl} alt="firebase" className="db__image"/>
+            <img src= {imgsrc} alt="firebase" className="db__image"/>
         </div>
         
     )

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 
 import {storage} from "../../firebase/firebase.utils";
 
@@ -7,11 +7,10 @@ import Image from "../../components/image/image.component"
 
 const MediaPage = () => {
 
-    var uploader = document.getElementsByClassName("uploader");
-    var fileButton = document.getElementById("#fileButton")
+
 
     const fileSelection = async (e) => {
-        console.log("dgdgdg")
+    
         var file = e.target.files[0]
 
         var storageRef = storage.ref('images/' + file.name);
@@ -19,7 +18,7 @@ const MediaPage = () => {
         var task = storageRef.put(file)
 
          task.on('state_changed', (snapshot) => {
-            var percentage = (snapshot.bytesTransferred/snapshot.totalBytes)*100
+          //  var percentage = (snapshot.bytesTransferred/snapshot.totalBytes)*100
            // uploader.value = percentage;
            // console.log(percentage);
           //  console.log(uploader.value)
@@ -32,28 +31,56 @@ const MediaPage = () => {
 
         () => {
 
-        }
-        
-        )
+        })
     }
 
-        var storageRef = storage.ref()
+    const [imgurl, setimgurl] = useState("");
+    const [Allimgurl, setAllimgurl] = useState([]);
+
+    const [imgSrc, setimgSrc] = useState([]);
+    
+    
+        let storageRef = storage.ref();
+        storageRef.child(`images/download.png`).getDownloadURL().then(url => {
+            setimgurl(url)
+        })
+
+        const getAllImgs = async () => {
+            let imageRef = await storageRef.child(`images`).list()       
+            let location = imageRef.items.map(item => item.location.path)
+            setAllimgurl(location)                 
+        }
+        console.log(Allimgurl)
         
-        var imgUrl = storageRef.child('images/download.png').getDownloadURL().then(url => {return url})
 
-        console.log(imgUrl.PromiseResult)
+    //  console.log(imgSrc)
 
-   
-
+        useEffect(() => {
+            getAllImgs();
+        }, [])
 
     
+
+         Allimgurl.map(item => storageRef.child(`${item}`).getDownloadURL().then(url => {
+             let allSrcs = [];
+             allSrcs.push(url)
+             console.log(allSrcs)
+             setimgSrc(allSrcs)
+           }) )
+
+        
 
 
     return (
         <div>
             <progress value = "0" max = "100"  className = "uploader">0%</progress>
             <input type="file"  id="fileButton" onChange= {fileSelection}  />
-            <Image imgUrli = {imgUrl} />
+            <Image  imgsrc = {imgurl}  /> 
+
+    {
+        
+     }
+            
 
         </div>
         
