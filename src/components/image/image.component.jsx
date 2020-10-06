@@ -9,8 +9,8 @@ const Image = (props) => {
 
     return (
         <div>
-            <div>Hello</div>
-            <img src= {imgsrc} alt="firebase" className="db__image"/>
+            <h1>Images</h1>
+            <img src= {imgsrc} alt = "firebase" />
         </div>
         
     )
