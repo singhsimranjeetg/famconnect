@@ -1,4 +1,5 @@
-import React from "react"
+import React from "react";
+import "../../App.css"
 import {Route, Link, Switch , BrowserRouter} from "react-router-dom";
 
 
@@ -12,8 +13,8 @@ const HomePage = () => {
     return (
         
         <div>
-            <Header />
-            
+            <Header />  
+                     
         </div>
 
 

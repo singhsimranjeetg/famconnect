@@ -1,15 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../../App.css";
 
 import firebase, {auth, writeUserDataInRd} from "../../firebase/firebase.utils";
 
 export function SignIn() {
+
     const signInWithGoogle = async () => {
       const provider = new firebase.auth.GoogleAuthProvider();
+      provider.setCustomParameters({prompt: "select_account"})
       await auth.signInWithPopup(provider);
-      writeUserDataInRd();
+      //writeUserDataInRd();
 
     };
+
+    function temp () {
+        setTimeout(() => { signInWithGoogle()}, 3000)
+
+    }
+    
+
+
   
     return (
       <>

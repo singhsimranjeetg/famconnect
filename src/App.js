@@ -2,9 +2,6 @@ import React from "react";
 import "./App.css";
 
 import { useAuthState } from "react-firebase-hooks/auth";
-import {Route, Link, Switch , BrowserRouter} from "react-router-dom";
-
-
 
 
 import PasswordPage from "./pages/password/password.page";
@@ -26,12 +23,6 @@ function App() {
   return (
     <div className="App">
       <section>{user ? <HomePage/> : <PasswordPage />}</section>
-      <BrowserRouter>
-            <Switch>
-            <Route exact path = "/chat" component = {ChatRoom} />
-            <Route exact path = "/media" component = {MediaPage} />
-            </Switch>  
-      </BrowserRouter> 
     </div>
   );
 }

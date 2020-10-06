@@ -18,7 +18,7 @@ function ChatRoom() {
     let messageBody = document.querySelector('#messageBody');
     messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
 
-    fcmNoti();
+   // fcmNoti();
   })
 
 
