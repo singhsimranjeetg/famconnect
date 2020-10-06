@@ -55,8 +55,7 @@ class MediaPreview extends React.Component {
 
   render() {
     return (
-      <div>
-           <h1> Media Preview</h1>  
+      <div> 
            {
                console.log("i am fired")
            }

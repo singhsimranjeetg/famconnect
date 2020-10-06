@@ -1,5 +1,7 @@
 import React from "react";
 
+import "../../App.css"
+
 import {storage} from "../../firebase/firebase.utils";
 
 import MediaPreview from "../../components/media-preview/media-preview.component"
@@ -26,7 +28,8 @@ const MediaPage = () => {
     return (
         <div>
             <progress value = "0" max = "100"  className = "uploader">0%</progress>
-            <input type="file"  id="fileButton" onChange= {fileSelection}  />  
+            <input type="file"  id="fileButton" onChange= {fileSelection} accept = "image/*" />  
+            <label htmlFor="fileButton">Choose a Photo</label>
             
             <MediaPreview />
             

@@ -2,9 +2,8 @@ import React, {useState} from "react";
 import "../../App.css";
 
 //import ChatRoom from "../../components/chat-room/chat-room.component";
-
-//import {SignIn} from "../../components/signin-and-signout/sign-in-and-sign-out.component"
-import MediaPage from "../media/media.page"
+import {SignIn} from "../../components/signin-and-signout/sign-in-and-sign-out.component"
+//import MediaPage from "../media/media.page"
 
 
 
@@ -38,7 +37,7 @@ const PasswordPage = () => {
 
     return (
         <div>
-        {authorized ? <MediaPage/> : 
+        {authorized ? <SignIn/> : 
         <section>
           <h1>Please enter access key or contact Simranjeet for more details.</h1>
         <form onSubmit = {checkPassword}>
