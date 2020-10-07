@@ -104,7 +104,63 @@ export const fcmNoti = () => {
       docRef.on('value', snap => console.log(snap.val()));*/
     }
     }
-    
+
+    export const signInWithGoogle = async () => {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      provider.setCustomParameters({prompt: "select_account"})
+      await auth.signInWithPopup(provider);
+      //writeUserDataInRd();
+
+    };
+  /*  
+    export const signInWithPhone = async () => {
+        window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('sign-in-button', {
+         'size': 'invisible',
+         'callback': function(response) {
+         // reCAPTCHA solved, allow signInWithPhoneNumber.
+          onSignInSubmit();
+  }
+});
+
+var code = getCodeFromUserInput();
+confirmationResult.confirm(code).then(function (result) {
+  // User signed in successfully.
+  var user = result.user;
+  // ...
+}).catch(function (error) {
+  // User couldn't sign in (bad verification code?)
+  // ...
+});
+        
+
+    }*/
+
+    export const testAuth = () => {  
+        console.log("higf") 
+firebase.auth().settings.appVerificationDisabledForTesting = true;
+
+var phoneNumber = "+101234567890";
+var testVerificationCode = "012345";
+
+// This will render a fake reCAPTCHA as appVerificationDisabledForTesting is true.
+// This will resolve after rendering without app verification.
+var appVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+// signInWithPhoneNumber will call appVerifier.verify() which will resolve with a fake
+// reCAPTCHA response.
+firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
+    .then(function (confirmationResult) {
+        
+        console.log("pass")
+      // confirmationResult can resolve with the whitelisted testVerificationCode above.
+      return confirmationResult.confirm(testVerificationCode)
+    }).catch(function (error) {
+        console.log("error")
+      // Error; SMS not sent
+      // ...
+    });
+
+
+    }
 
 
 

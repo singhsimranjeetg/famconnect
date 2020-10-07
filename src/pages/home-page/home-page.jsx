@@ -13,8 +13,7 @@ const HomePage = () => {
     return (
         
         <div>
-            <Header />  
-                     
+            <Header />                  
         </div>
 
 

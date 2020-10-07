@@ -1,24 +1,13 @@
-import React, { useEffect } from "react";
+import React, {  useState } from "react";
 import "../../App.css";
 
-import firebase, {auth, writeUserDataInRd} from "../../firebase/firebase.utils";
+import firebase, {auth, signInWithGoogle, testAuth} from "../../firebase/firebase.utils";
 
 export function SignIn() {
 
-    const signInWithGoogle = async () => {
-      const provider = new firebase.auth.GoogleAuthProvider();
-      provider.setCustomParameters({prompt: "select_account"})
-      await auth.signInWithPopup(provider);
-      //writeUserDataInRd();
+    const [formValue, setFormValue] = useState("");
 
-    };
-
-    function temp () {
-        setTimeout(() => { signInWithGoogle()}, 3000)
-
-    }
     
-
 
   
     return (
@@ -29,6 +18,19 @@ export function SignIn() {
         <button className="sign-in" onClick={signInWithGoogle}>
           Sign in with Google
         </button>
+       
+      
+            <button type="submit" /*disabled={!formValue}*/
+          onClick = {testAuth}
+           className = "sign-in-button"
+           id="recaptcha-container"
+           >
+           Send Code
+          </button>
+
+       
+         
+          
         
       </>
     );
@@ -49,3 +51,10 @@ export function SignIn() {
     )
   }
 
+/*   <form onSubmit={testAuth}>
+          <input
+            value={formValue}
+            onChange={(e) => setFormValue(e.target.value)}
+            placeholder="Enter Phone Number"
+          />
+    */

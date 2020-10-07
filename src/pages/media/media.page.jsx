@@ -30,6 +30,7 @@ const MediaPage = () => {
             <progress value = "0" max = "100"  className = "uploader">0%</progress>
             <input type="file"  id="fileButton" onChange= {fileSelection} accept = "image/*" />  
             <label htmlFor="fileButton">Choose a Photo</label>
+      
             
             <MediaPreview />
             
@@ -100,3 +101,4 @@ export default MediaPage;
            }) )
 */
 
+      /**/

@@ -26,11 +26,9 @@ const Header = () => {
         <Link to = "/chat">Chat</Link>
         </header>
             <Switch>
-            <Route  path = "/media" component = {MediaPage} />
+            <Route exact path = "/media" component = {MediaPage} />
             <Route path = "/chat" component = {ChatRoom} />  
-            </Switch>  
-           
-        
+            </Switch>     
          </BrowserRouter>       
         </div>
 
