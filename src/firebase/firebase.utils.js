@@ -112,6 +112,22 @@ export const fcmNoti = () => {
       //writeUserDataInRd();
 
     };
+
+
+   export const  SignInWithPhone = (phoneNumber) => {
+      let recaptcha = new firebase.auth.RecaptchaVerifier('recaptcha')
+      let number = phoneNumber
+      firebase.auth().signInWithPhoneNumber(number, recaptcha).then(function(e){
+        let code = prompt('Enter OTP', '')
+        if(code == null) return;
+        e.confirm(code).then(function(result) {
+          console.log(result.user, 'user')
+        }).catch((error) => {
+          console.log(error)
+        })
+      })
+    }
+
   /*  
     export const signInWithPhone = async () => {
         window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('sign-in-button', {
@@ -133,7 +149,7 @@ confirmationResult.confirm(code).then(function (result) {
 });
         
 
-    }*/
+    }
 
     export const testAuth = () => {  
         console.log("higf") 
@@ -161,7 +177,7 @@ firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
 
 
     }
-
+*/
 
 
 export default firebase;

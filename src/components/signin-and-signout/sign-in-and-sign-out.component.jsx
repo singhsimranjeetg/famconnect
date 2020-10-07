@@ -1,12 +1,20 @@
 import React, {  useState } from "react";
 import "../../App.css";
 
-import firebase, {auth, signInWithGoogle, testAuth} from "../../firebase/firebase.utils";
+import {auth, signInWithGoogle, SignInWithPhone} from "../../firebase/firebase.utils";
 
 export function SignIn() {
 
     const [formValue, setFormValue] = useState("");
 
+
+    const signInWithPhoneNumber = (e) => {
+      e.preventDefault();
+       SignInWithPhone(formValue);
+      setFormValue("");
+      
+      
+    };
     
 
   
@@ -15,18 +23,23 @@ export function SignIn() {
         <h1>
           Welcome to Famconnect !
         </h1>
+        <div id="recaptcha"></div>
         <button className="sign-in" onClick={signInWithGoogle}>
           Sign in with Google
         </button>
        
       
-            <button type="submit" /*disabled={!formValue}*/
-          onClick = {testAuth}
-           className = "sign-in-button"
-           id="recaptcha-container"
+        <form onSubmit={signInWithPhoneNumber}>
+          <input
+            value={formValue}
+            onChange={(e) => setFormValue(e.target.value)}
+            placeholder="Enter Phone Number With Country Code"
+          />
+           <button type="submit" disabled={!formValue}
            >
-           Send Code
+           Sign in with Phone 
           </button>
+          </form>
 
        
          
@@ -51,10 +64,5 @@ export function SignIn() {
     )
   }
 
-/*   <form onSubmit={testAuth}>
-          <input
-            value={formValue}
-            onChange={(e) => setFormValue(e.target.value)}
-            placeholder="Enter Phone Number"
-          />
-    */
+   
+    

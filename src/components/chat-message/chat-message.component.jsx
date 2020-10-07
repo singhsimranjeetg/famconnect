@@ -35,12 +35,17 @@ function ChatMessage(props) {
       <>      
           <Hammer onDoubleTap={handleTap} onSwipe={handleSwipe}>
           <div className={`message ${messageClass}`} id = "chat__message">
-          <img
-            src={
-              photoURL
+            {
+              photoURL ? ( <img
+                src={
+                  photoURL
+                }
+                alt="user"
+              />  ) : (
+                <img src = "https://cdn2.iconfinder.com/data/icons/emoji-and-emoticons/64/Emoji-103-512.png" alt = "user" />
+              )
             }
-            alt="chat"
-          />    
+  
           <p>{text} <span className = "msg-date"> {createdAt.toDate().toString().slice(3, 21)} </span></p></div>
 
           </Hammer>

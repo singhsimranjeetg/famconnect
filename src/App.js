@@ -6,9 +6,6 @@ import { useAuthState } from "react-firebase-hooks/auth";
 
 import PasswordPage from "./pages/password/password.page";
 import HomePage from "./pages/home-page/home-page"
-import MediaPage from "./pages/media/media.page"
-
-import ChatRoom from "./components/chat-room/chat-room.component"
 
 import {auth} from "./firebase/firebase.utils";
 

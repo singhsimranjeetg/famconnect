@@ -5,7 +5,7 @@ import ChatMessage from "../chat-message/chat-message.component"
 
 import { useCollectionData } from "react-firebase-hooks/firestore";
 
-import  { createNewMessageDoc, firestore, fcmNoti} from "../../firebase/firebase.utils";
+import  { createNewMessageDoc, firestore} from "../../firebase/firebase.utils";
 
 
 

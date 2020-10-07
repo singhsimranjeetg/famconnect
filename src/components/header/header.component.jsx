@@ -20,16 +20,19 @@ const Header = () => {
     return (
         <div>
         <BrowserRouter>  
-        <header>
-        <SignOut />     
-        <Link to = "/media" >Gallery</Link> 
-        <Link to = "/chat">Chat</Link>
-        </header>
+
             <Switch>
-            <Route exact path = "/media" component = {MediaPage} />
+            <Route exact path = "/" component = {ChatRoom} /> 
+            <Route path = "/media" component = {MediaPage} />
             <Route path = "/chat" component = {ChatRoom} />  
-            </Switch>     
-         </BrowserRouter>       
+            </Switch>    
+        <header>
+        <Link to = "/chat">Chat</Link>    
+        <Link to = "/media" >Gallery</Link> 
+        <SignOut />     
+        </header> 
+         </BrowserRouter>
+    
         </div>
 
     )
