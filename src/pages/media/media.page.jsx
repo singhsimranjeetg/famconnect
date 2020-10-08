@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../../App.css"
+import "./media-page.styles.scss"
 
 import {storage} from "../../firebase/firebase.utils";
 
@@ -28,8 +28,8 @@ const MediaPage = () => {
     return (
         <div>
             <progress value = "0" max = "100"  className = "uploader">0%</progress>
-            <input type="file"  id="fileButton" onChange= {fileSelection} accept = "image/*" />  
-            <label htmlFor="fileButton">Choose a Photo</label>
+            <input className = "media__input" type="file"  id="fileButton" onChange= {fileSelection} accept = "image/*" />  
+            <label className = "media__label" htmlFor="fileButton">Choose a Photo</label>
       
             
             <MediaPreview />

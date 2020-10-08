@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import "../../App.css";
+import "./password-page.styles.scss";
 
 //import ChatRoom from "../../components/chat-room/chat-room.component";
 import {SignIn} from "../../components/signin-and-signout/sign-in-and-sign-out.component"
@@ -42,6 +42,7 @@ const PasswordPage = () => {
           <h1>Please enter access key or contact Simranjeet for more details.</h1>
         <form onSubmit = {checkPassword}>
           <input
+            className = "password__input"
             value={formValue}
             onChange={(e) => setFormValue(e.target.value)}
             placeholder="Enter your key"

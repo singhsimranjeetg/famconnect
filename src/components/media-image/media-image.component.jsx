@@ -1,4 +1,5 @@
 import React from 'react';
+import "./media-image.styles.scss"
 
 //import { storage} from "../../firebase/firebase.utils"
 

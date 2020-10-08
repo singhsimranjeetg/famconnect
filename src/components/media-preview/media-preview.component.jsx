@@ -2,7 +2,7 @@ import React from "react"
 
 import {storage} from "../../firebase/firebase.utils";
 
-import Image from "../image/image.component"
+import Image from "../media-image/media-image.component"
 
 class MediaPreview extends React.Component {
   constructor(props) {

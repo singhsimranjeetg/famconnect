@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div className="App">
-      <section>{user ? <HomePage/> : <PasswordPage />}</section>
+      <section className = "app__container">{user ? <HomePage/> : <PasswordPage />}</section>
     </div>
   );
 }

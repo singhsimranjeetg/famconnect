@@ -1,5 +1,5 @@
 import React from "react";
-import "../../App.css";
+import "./chat-message.styles.scss";
 
 import {auth, deleteMessageDoc} from "../../firebase/firebase.utils";
 

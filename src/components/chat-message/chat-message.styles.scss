@@ -1,0 +1,38 @@
+.message {
+  display: flex;
+  align-items: center;
+}
+
+.message__hide {
+  display: none;
+}
+
+.message-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.msg-date {
+  
+  font-size: 8px;
+  margin-top: -8px;
+  align-self: flex-start;
+  margin-left: 20px;
+ font-weight: lighter;
+ color: darkslategrey;
+}
+
+
+.sent {
+  flex-direction: row-reverse;
+}
+
+.sent p {
+  background: #e5e5ea;
+  color: black;
+  align-self: flex-end;
+}
+.received p {
+  background: #e5e5ea;
+  color: black;
+}

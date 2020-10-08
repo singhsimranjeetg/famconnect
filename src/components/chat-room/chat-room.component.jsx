@@ -1,5 +1,5 @@
 import React, {useRef, useState, useEffect} from "react";
-import "../../App.css";
+import "./chat-room.styles.scss";
 
 import ChatMessage from "../chat-message/chat-message.component"
 
@@ -34,10 +34,8 @@ function ChatRoom() {
   
     const sendMessage = async (e) => {
       e.preventDefault();
-      await createNewMessageDoc(formValue);
-
-  
       setFormValue("");
+      await createNewMessageDoc(formValue);   
       dummy.current.scrollIntoView({ behavior: "smooth" });
       
     };
@@ -50,7 +48,7 @@ function ChatRoom() {
   
     return (
       <>
-        <main id = 'messageBody'>
+        <main id = 'messageBody' className = "chat__room">
           {messages &&
             messages.map((msg) => (
                <ChatMessage key={msg.id} message={msg} />)
@@ -59,14 +57,15 @@ function ChatRoom() {
           <span ref={dummy}></span>
         </main>
   
-        <form onSubmit={sendMessage}>
+        <form onSubmit={sendMessage} className = "chat__room--form">
           <input
+            className = "chat__room--input"
             value={formValue}
             onChange={(e) => setFormValue(e.target.value)}
             placeholder="Type a message"
           />
   
-          <button type="submit" disabled={!formValue}>
+          <button className = "chat__room--button" type="submit" disabled={!formValue}>
           <i className="far fa-paper-plane"></i>
           </button>
         </form>

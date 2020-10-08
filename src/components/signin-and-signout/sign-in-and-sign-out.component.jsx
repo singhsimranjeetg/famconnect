@@ -1,5 +1,5 @@
 import React, {  useState } from "react";
-import "../../App.css";
+import "./sign-in-and-sign-out.styles.scss";
 
 import {auth, signInWithGoogle, SignInWithPhone} from "../../firebase/firebase.utils";
 
@@ -24,13 +24,14 @@ export function SignIn() {
           Welcome to Famconnect !
         </h1>
         <div id="recaptcha"></div>
-        <button className="sign-in" onClick={signInWithGoogle}>
+        <button className="sign__in--google" onClick={signInWithGoogle}>
           Sign in with Google
         </button>
        
       
         <form onSubmit={signInWithPhoneNumber}>
           <input
+            className = "sign__in--phone"
             value={formValue}
             onChange={(e) => setFormValue(e.target.value)}
             placeholder="Enter Phone Number With Country Code"

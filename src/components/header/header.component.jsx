@@ -1,5 +1,5 @@
 import React from "react"
-import "../../App.css"
+import "./header.styles.scss"
 
 import MediaPage from "../../pages/media/media.page"
 import ChatRoom from "../chat-room/chat-room.component"
@@ -26,7 +26,7 @@ const Header = () => {
             <Route path = "/media" component = {MediaPage} />
             <Route path = "/chat" component = {ChatRoom} />  
             </Switch>    
-        <header>
+        <header className = "header">
         <Link to = "/chat">Chat</Link>    
         <Link to = "/media" >Gallery</Link> 
         <SignOut />     
